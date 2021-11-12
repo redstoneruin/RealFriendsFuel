@@ -1,1 +1,37 @@
 @import '../../App';
+
+
+.page-container {
+	padding:2em;
+	display:flex;
+	flex:1;
+	justify-content:center;
+}
+
+
+.calc-card {
+	border-radius:5px;
+	background-color:$light-gray;
+	padding:2em;
+	width:500px;
+}
+
+.calc-title-container {
+	display:flex;
+	flex:1;
+	justify-content:center;
+}
+
+.form-container {
+	margin-top:0.5em;
+}
+
+.go-button {
+	margin-bottom:0;	
+}
+
+.button-bar {
+	display:flex;
+	flex:1;
+	justify-content:flex-end;
+}
