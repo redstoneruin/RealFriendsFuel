@@ -3,3 +3,16 @@
 $topbar-background: $secondary-color;
 
 @import 'node_modules/foundation-sites/assets/foundation';
+
+
+.content-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.content-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}

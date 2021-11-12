@@ -79,19 +79,28 @@ class CalculatorPage extends Component {
 			</div>
 
 
-		const timedResults = !this.resultsAvailable ? null :
+		const timedResults = !this.state.resultsAvailable ? null :
 			<div>
 			</div>;
 
 
-		const lapResults = !this.resultsAvailable ? null :
+		const lapResults = !this.state.resultsAvailable ? null :
 			<div>
 			</div>;
 
 		return (
-			<div className="page-container">
-				{ calcForm }
-				{ this.state.timed ? timedResults : lapResults }	
+			<div className="page-container grid-container fluid">
+				<div className={"grid-x grid-margin-x grid-margin-y " + (this.state.resultsAvailable ? "medium-up-2" : "")}>
+
+					<div className="cell content-center">
+						{ calcForm }
+					</div>
+					
+					<div className="cell content-center">
+						{ this.state.timed ? timedResults : lapResults }	
+					</div>
+				
+				</div>	
 			</div>
 		);
 	}
