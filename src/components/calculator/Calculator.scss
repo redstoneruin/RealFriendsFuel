@@ -2,7 +2,7 @@
 
 
 .page-container {
-	padding:2em;
+	padding-top:2em;
 	//display:flex;
 	//flex:1;
 	//justify-content:center;
@@ -14,6 +14,12 @@
 	background-color:$light-gray;
 	padding:2em;
 	width:500px;
+}
+
+.result-card {
+	border-radius:5px;
+	background-color:$light-gray;
+	padding:1em;
 }
 
 .calc-title-container {
@@ -34,4 +40,13 @@
 	display:flex;
 	flex:1;
 	justify-content:flex-end;
+}
+
+.result {
+	margin:0;
+	font-size:30px;
+}
+
+.result-description {
+	margin:0;
 }
