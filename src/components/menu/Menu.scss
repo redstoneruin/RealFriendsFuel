@@ -1,1 +1,15 @@
 @import '../../App';
+
+.name-container {
+	display:flex;
+	flex-direction:column;
+}
+
+.title-link {
+	color:white;
+	margin-left:0.5em;
+}
+
+.title-link:hover {
+	color:white;
+}
