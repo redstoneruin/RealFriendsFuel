@@ -17,6 +17,11 @@ $topbar-background: $secondary-color;
   justify-content: flex-end;
 }
 
+.items-center {
+  display: flex;
+  align-items: center;
+}
+
 .error-text {
   color: red;
 }

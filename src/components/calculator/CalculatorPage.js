@@ -183,8 +183,21 @@ class CalculatorPage extends Component {
 					<input type="submit" onSubmit={this.handleSubmit} style={{"display":"none"}} />
 					
 					<div className="button-bar">
-						<div className="button success go-button" onClick={this.handleSubmit}>
-							Go
+						<div className="button-bar-left">
+							<div className="button success go-button" onClick={this.handleSubmit}>
+								Go
+							</div>
+						</div>
+						<div className="button-bar-right">
+							<p className="timed-label">Timed</p>
+
+							<div className="switch small" onClick={() => this.setTimed(!this.state.timed)}>
+								<input class="switch-input" id="exampleSwitch" type="checkbox" name="timedSwitch" 
+									checked={this.state.timed}/>
+								<label class="switch-paddle" for="timedSwitch">
+									<span class="show-for-sr">Timed</span>
+								</label>
+							</div>
 						</div>
 					</div>
 				</form>
@@ -200,6 +213,8 @@ class CalculatorPage extends Component {
 
 		const lapResults =
 			<div className="cell result-card">
+				<p className="result content-center">{this.state.raceTime}</p>
+				<p className="result-description content-center">Race Time</p>
 			</div>;
 
 
