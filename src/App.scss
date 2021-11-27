@@ -4,6 +4,8 @@ $topbar-background: $secondary-color;
 
 @import 'node_modules/foundation-sites/assets/foundation';
 
+@include foundation-range-input;
+
 
 .content-center {
   display: flex;

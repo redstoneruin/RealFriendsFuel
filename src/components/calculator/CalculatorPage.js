@@ -26,6 +26,8 @@ class CalculatorPage extends Component {
 			numStops:0,
 			lastStopFuel:0,
 			fuelUsage:0,
+			extraLaps:"0",
+			paceLap:0
 		};
 	}
 
@@ -88,8 +90,9 @@ class CalculatorPage extends Component {
 			raceTime = (raceLaps * this.state.lapTime) / 60;
 		}
 
+		
 		const lapsPerTank = this.state.maxFuel / this.state.fuelUsage;
-		const totalFuel = this.state.fuelUsage * (raceLaps); // TODO: Add parameters
+		const totalFuel = this.state.fuelUsage * (raceLaps + parseFloat(this.state.extraLaps) + 0.25*this.state.paceLap);
 		const numStops = Math.ceil((totalFuel - this.state.maxFuel) / this.state.maxFuel);
 		const lastStopFuel = numStops ? 
 			totalFuel - numStops * this.state.maxFuel : 
@@ -122,6 +125,7 @@ class CalculatorPage extends Component {
 	/* Begin setters */
 
 	inputHandler = (e) => this.setState({[e.target.id]:e.target.value});
+	paceHandler = (e) => this.setState({[e.target.name]:e.target.value});
 	setTimed = (timed) => this.setState({timed});
 
 	/* End setters */
@@ -180,6 +184,22 @@ class CalculatorPage extends Component {
 					</label>
 					{ this.state.fuelUsageValid ? null : fuelUsageInval }
 
+
+					<label>{this.state.extraLaps} Extra Lap{this.state.extraLaps === "1" ? "" : "s"}
+						<input id="extraLaps" className="extra-lap-slider" type="range" min="0" max="10" step="0.1" 
+							value={this.state.extraLaps} onChange={this.inputHandler} />	
+					</label>
+
+					<fieldset style={{"marginTop":20,"marginBottom":0}}>
+						<label>Pace Lap</label>
+						<input type="radio" name="paceLap" value={0} onChange={this.paceHandler} id="noPace" 
+							defaultChecked="checked" required /><label htmlFor="noPace">None</label>
+						<input type="radio" name="paceLap" value={1} onChange={this.paceHandler} id="halfPace" />
+							<label htmlFor="halfPace">Half</label>
+						<input type="radio" name="paceLap" value={2} onChange={this.paceHandler} id="fullPace" />
+							<label htmlFor="fullPace">Full</label>
+					</fieldset>
+
 					<input type="submit" onSubmit={this.handleSubmit} style={{"display":"none"}} />
 					
 					<div className="button-bar">
@@ -192,10 +212,10 @@ class CalculatorPage extends Component {
 							<p className="timed-label">Timed</p>
 
 							<div className="switch small" onClick={() => this.setTimed(!this.state.timed)}>
-								<input class="switch-input" id="exampleSwitch" type="checkbox" name="timedSwitch" 
-									checked={this.state.timed}/>
-								<label class="switch-paddle" for="timedSwitch">
-									<span class="show-for-sr">Timed</span>
+								<input className="switch-input" id="exampleSwitch" type="checkbox" name="timedSwitch" 
+									checked={this.state.timed} readOnly/>
+								<label className="switch-paddle" htmlFor="timedSwitch">
+									<span className="show-for-sr">Timed</span>
 								</label>
 							</div>
 						</div>
